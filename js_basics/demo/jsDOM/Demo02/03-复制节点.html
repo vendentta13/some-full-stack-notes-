@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        let ul = document.querySelector('ul');
+        //1.node.cloneNode();括号参数为空或者false为浅拷贝，只克隆复制节点本身，不克隆里面的子元素
+        let empty = ul.children[0].cloneNode();
+        ul.append(empty);
+        // 2.括号参数为true
+        let ne = ul.children[1].cloneNode(true);
+        ul.append(ne);
+    </script>
+</body>
+
+</html>

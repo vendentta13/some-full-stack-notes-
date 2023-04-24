@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #comment li {
+            list-style: none;
+            border: 1px solid black;
+            width: 50%;
+            height: 30px;
+            margin: 0 auto 10px;
+            line-height: 32px;
+            background-image: linear-gradient(90deg, #6c986a, rgba(5, 32, 167, 0.607), rgba(70, 19, 163, 0.26));
+        }
+
+        li a {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea cols="30" rows="10"></textarea>
+    <button>评论</button>
+    <ul id="comment">
+
+    </ul>
+    <script>
+        let ta = document.querySelector('textarea');
+        let btn = document.querySelector('button');
+        let com = document.querySelector('#comment');
+        btn.onclick = function () {
+            // console.log(!undefined);
+            // console.log(!null);
+            if (!ta.value || ta.value == '') {
+                alert('你输入的内容为空')
+                return false;
+            }
+            else {
+                let newElement = document.createElement('li');
+                newElement.innerHTML = ta.value + "<a href='javascript:;'>删除</a>";
+                let del = newElement.children[0];
+                del.onclick = function () {
+                    com.removeChild(this.parentNode);
+                }
+                ta.value = '';
+                com.append(newElement);
+            }
+        }
+    </script>
+</body>
+
+</html>

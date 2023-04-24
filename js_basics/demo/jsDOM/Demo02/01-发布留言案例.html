@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #comment li {
+            list-style: none;
+            border: 1px solid black;
+            width: 100%;
+            height: 30px;
+            margin-bottom: 10px;
+            line-height: 32px;
+            background-image: linear-gradient(90deg, #6c986a, rgba(5, 32, 167, 0.607), rgba(70, 19, 163, 0.26));
+        }
+    </style>
+</head>
+
+<body>
+    <textarea cols="30" rows="10"></textarea>
+    <button>评论</button>
+    <ul id="comment">
+
+    </ul>
+    <script>
+        let ta = document.querySelector('textarea');
+        let btn = document.querySelector('button');
+        let com = document.querySelector('#comment');
+        btn.onclick = function () {
+            console.log(!undefined);
+            console.log(!null);
+            if (!ta.value || ta.value == '') {
+                alert('你输入的内容为空')
+                return false;
+            }
+            else {
+                let newElement = document.createElement('li');
+                newElement.innerText = ta.value;
+                ta.value = '';
+                com.append(newElement);
+            }
+        }
+    </script>
+</body>
+
+</html>
