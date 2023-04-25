@@ -6,8 +6,7 @@ define(["b"], function (b) {
   }
 
   function getMsg() {
-    return "get " + msg;
+    return msg;
   }
-
   return { showMsg, getMsg };
 });

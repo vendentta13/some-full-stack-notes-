@@ -1,7 +1,7 @@
-define(["a"], function (a) {
+define(["c"], function (c) {
   let msg = "b.js";
   function showMsg() {
-    console.log(msg, a.getMsg());
+    console.log(msg, c.getMsg());
   }
 
   function getMsg() {
