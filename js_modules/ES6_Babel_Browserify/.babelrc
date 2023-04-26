@@ -1,0 +1,7 @@
+// rc:run control
+//Babel 7 中已经弃用以上预设值了，而应该直接使 @babel/preset-env 来替代。
+{
+    "presets": [
+        "es2015"
+    ]
+}
