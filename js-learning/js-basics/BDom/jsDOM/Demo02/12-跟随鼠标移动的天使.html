@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+            /* 使得图片居中 */
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../../imgs/angel.gif">
+    <script>
+        let angel = document.querySelector('img');
+        document.addEventListener('mousemove', function (e) {
+            let x = e.clientX;
+            let y = e.clientY;
+            // 千万不要忘记添加px单位
+            angel.style.left = x + 'px';
+            angel.style.top = y + 'px';
+        })
+    </script>
+</body>
+
+</html>

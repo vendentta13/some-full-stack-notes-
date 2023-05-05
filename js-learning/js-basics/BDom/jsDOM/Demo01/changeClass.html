@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>className</title>
+    <style>
+        .first {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        .second {
+            width: 100px;
+            height: 100px;
+            color: deeppink;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first">盒子</div>
+    <script>
+        let box_1 = document.querySelector(".first");
+        box_1.onclick = function () {
+            this.className = "second";
+            // 如果需要保留原本的样式的话，就写多类名
+            this.className = "first second";
+        }
+    </script>
+</body>
+
+</html>
