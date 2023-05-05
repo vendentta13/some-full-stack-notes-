@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <p>123</p>
+    <script>
+        // 1.直接write
+        document.write("<div>88888</div>");
+        // 2.文档加载完毕后，再write
+        let btn = document.querySelector('button');
+        btn.onclick = function () {
+            document.write("<div>页面会被重写,因为页面加载完毕后才会显示按钮,而文档流执行完毕后,document.write操作会导致页面全部重绘</div>")
+        }
+        //放在window.onload函数里面也一样会重写
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function arrJoin() {
+            console.log("使用innerHTML并采用数组join方式");
+            let d1 = +new Date();
+            let arr = [];
+            for (let i = 0; i < 10000; i++) {
+                arr.push('<div style="width:100px;height:100px;border:1px solid blue;"></div>');
+            }
+            document.body.innerHTML = arr.join("");
+            let d2 = +new Date();
+            console.log(d2 - d1);
+        }
+
+        function strAdd() {
+            console.log("使用innerHTML并采用字符串拼接方式");
+            // +号将数据类型转换为number型
+            let d1 = +new Date();
+            let str = '';
+            for (let i = 0; i < 10000; i++) {
+                str += '<div style="width:100px;height:100px;border:1px solid blue;"></div>';
+            }
+            document.body.innerHTML = str;
+            let d2 = +new Date();
+            console.log(d2 - d1);
+        }
+
+        function se() {
+            console.log("采用createElement方式");
+            let d1 = +new Date();
+            for (let i = 0; i < 10000; i++) {
+                let d = document.createElement('div');
+                d.style.width = '100px';
+                d.style.height = '100px';
+                d.style.border = '1px solid blue'
+                document.body.appendChild(d);
+            }
+
+            let d2 = +new Date();
+            console.log(d2 - d1);
+        }
+        arrJoin();
+        strAdd();
+        se();
+    </script>
+</body>
+
+</html>

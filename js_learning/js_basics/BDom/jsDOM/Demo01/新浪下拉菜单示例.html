@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        div {
+            height: 22px;
+            width: 400px;
+            margin: 200px auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            width: 32px;
+            height: auto;
+        }
+
+        ul li {
+            width: 32px;
+            height: 20px;
+            border: 1px solid orange;
+        }
+
+        span {
+            position: relative;
+            width: 32px;
+            height: 100%;
+            border: 1px solid orange;
+        }
+
+        /* div span:nth-child(n) {
+            margin-left: -1px;
+        } */
+
+        ul {
+            position: absolute;
+            list-style: none;
+            bottom: -60px;
+            left: 0;
+            display: none;
+            text-align: center;
+            line-height: 20px;
+            width: 32px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span><a href="#">微博</a>
+            <ul>
+                <li>ul1</li>
+                <li>ul1</li>
+                <li>ul1</li>
+            </ul>
+        </span>
+        <span><a href="#">微博</a>
+            <ul>
+                <li>ul2</li>
+                <li>ul2</li>
+                <li>ul2</li>
+            </ul>
+        </span>
+        <span><a href="#">微博</a>
+            <ul>
+                <li>ul3</li>
+                <li>ul3</li>
+                <li>ul3</li>
+            </ul>
+        </span>
+        <span><a href="#">微博</a>
+            <ul>
+                <li>ul4</li>
+                <li>ul4</li>
+                <li>ul4</li>
+            </ul>
+        </span>
+        <script>
+            let spanArr = document.querySelectorAll("span");
+            for (let i = 0; i < spanArr.length; i++) {
+                let ulChild = spanArr[i].children[1];
+                spanArr[i].onmouseover = function () {
+                    for (let i = 0; i < spanArr.length; i++) {
+                        let ulChild = spanArr[i].children[1];
+                        ulChild.style.display = "none";
+                    }
+                    ulChild.style.display = "block";
+                };
+            }
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>it-ih</title>
+    <style>
+        div,
+        p {
+            width: 100px;
+            height: 25px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <button>显示当前系统时间</button>
+    <div>某个时间</div>
+    <p>不用添加事件</p>
+    <div id="ih">
+        <span>hhhh</span>
+    </div>
+    <script>
+        function getTime() {
+            //格式化日期 年月日
+            var date = new Date();
+            //获取 年月日
+            var y = new String(date.getFullYear());
+            var m = new String(date.getMonth() + 1);
+            var d = new String(date.getDate());
+            var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            //一个星期中的哪一天
+            var day = date.getDay();
+            var which = new String(arr[day]);
+            return y + '年' + m + '月' + d + '日' + which;
+        }
+
+        //is和it的区别
+        //1.innerText do not recog html tag(非标准),并且无法识别空格和换行
+        var ih = document.querySelector('#ih');
+        //2.W3C标准
+
+        console.log(ih.innerHTML);
+        console.log(ih.innerText);
+        ih.innerHTML = '<strong>ih:</strong>可以识别Html语言';
+        console.log(ih.innerHTML);
+        console.log(ih.innerText);
+
+        //1.获取元素
+        var btn = document.querySelector("button");
+        var div = document.querySelector("div");
+        //2、注册事件
+        btn.onclick = function () {
+            div.innerText = getTime();
+        }
+
+        //不添加事件直接调用函数
+        var p_Time = document.querySelector('p');
+        p_Time.innerText = getTime();
+    </script>
+</body>
+
+</html>

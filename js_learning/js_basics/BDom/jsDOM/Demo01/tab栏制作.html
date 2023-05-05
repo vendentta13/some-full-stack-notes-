@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bigBox {
+            width: 400px;
+            height: 500px;
+            background-color: gray;
+        }
+
+        .choice {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .choice span {
+            float: left;
+            width: 100px;
+            height: 100%;
+        }
+
+        .lower-box {
+            width: 100%;
+            height: 100%;
+            background-color: palegreen;
+        }
+
+        .lower-box div {
+            display: none;
+        }
+
+        .lower-box div:first-child {
+            display: block;
+        }
+
+        /* 这里有一个疑问，为什么第一个span盒子一直是红色，与渲染的顺序有关吗？ */
+        /* .red-color {
+            background-color: red;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="bigBox">
+        <div class="choice">
+            <span class="red-color" style="background-color: red;">悬疑</span>
+            <span>科幻</span>
+            <span>历史</span>
+            <span>言情</span>
+        </div>
+        <div class="lower-box">
+            <div>这里是悬疑小说</div>
+            <div>这里是科幻小说</div>
+            <div>这里是历史小说</div>
+            <div>这里是言情小说</div>
+        </div>
+    </div>
+    <script>
+        let genre = document.querySelectorAll('.choice span');
+        let contents = document.querySelectorAll(".lower-box div");
+        for (let i = 0; i < genre.length; i++) {
+            // 绑定事件
+            genre[i].onclick = function () {
+                for (let i = 0; i < genre.length; i++) {
+                    //预先将所有底下的div盒子隐藏，span盒子设为无色
+                    genre[i].style.backgroundColor = '';
+                    contents[i].style.display = 'none';
+                }
+                genre[i].style.backgroundColor = 'red';
+                contents[i].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>
